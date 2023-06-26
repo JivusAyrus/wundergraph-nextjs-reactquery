@@ -7,7 +7,7 @@ export default configureWunderGraphServer(() => ({
 				mutatingPostResolve: async (hook) => {
 					if (hook.response.errors) return hook.response;
 					hook.response.data?.spacex_dragons?.push({
-						name: process.env.foo,
+						name: process.env.foo || 'test',
 						active: true,
 					});
 					return hook.response;
